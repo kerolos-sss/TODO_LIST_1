@@ -15,6 +15,11 @@
 		C9B72F021E62CBB800CDE187 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9B72F001E62CBB800CDE187 /* LaunchScreen.storyboard */; };
 		C9B72F0D1E62CBB900CDE187 /* TODO_List_1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B72F0C1E62CBB900CDE187 /* TODO_List_1Tests.swift */; };
 		C9B72F181E62CBB900CDE187 /* TODO_List_1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B72F171E62CBB900CDE187 /* TODO_List_1UITests.swift */; };
+		C9B72F2B1E62CE6000CDE187 /* DateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B72F261E62CE6000CDE187 /* DateButton.swift */; };
+		C9B72F2C1E62CE6000CDE187 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B72F271E62CE6000CDE187 /* DateView.swift */; };
+		C9B72F2D1E62CE6000CDE187 /* LocalNotificationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B72F281E62CE6000CDE187 /* LocalNotificationUtil.swift */; };
+		C9B72F2E1E62CE6000CDE187 /* PickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B72F291E62CE6000CDE187 /* PickerDialog.swift */; };
+		C9B72F2F1E62CE6000CDE187 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B72F2A1E62CE6000CDE187 /* ToDoItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		C9B72F131E62CBB900CDE187 /* TODO_List_1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TODO_List_1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B72F171E62CBB900CDE187 /* TODO_List_1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODO_List_1UITests.swift; sourceTree = "<group>"; };
 		C9B72F191E62CBB900CDE187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9B72F261E62CE6000CDE187 /* DateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateButton.swift; sourceTree = "<group>"; };
+		C9B72F271E62CE6000CDE187 /* DateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
+		C9B72F281E62CE6000CDE187 /* LocalNotificationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotificationUtil.swift; sourceTree = "<group>"; };
+		C9B72F291E62CE6000CDE187 /* PickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerDialog.swift; sourceTree = "<group>"; };
+		C9B72F2A1E62CE6000CDE187 /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +109,7 @@
 		C9B72EF41E62CBB800CDE187 /* TODO_List_1 */ = {
 			isa = PBXGroup;
 			children = (
+				C9B72F251E62CE5000CDE187 /* utils */,
 				C9B72EF51E62CBB800CDE187 /* AppDelegate.swift */,
 				C9B72EF71E62CBB800CDE187 /* MasterViewController.swift */,
 				C9B72EF91E62CBB800CDE187 /* DetailViewController.swift */,
@@ -126,6 +137,18 @@
 				C9B72F191E62CBB900CDE187 /* Info.plist */,
 			);
 			path = TODO_List_1UITests;
+			sourceTree = "<group>";
+		};
+		C9B72F251E62CE5000CDE187 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				C9B72F261E62CE6000CDE187 /* DateButton.swift */,
+				C9B72F271E62CE6000CDE187 /* DateView.swift */,
+				C9B72F281E62CE6000CDE187 /* LocalNotificationUtil.swift */,
+				C9B72F291E62CE6000CDE187 /* PickerDialog.swift */,
+				C9B72F2A1E62CE6000CDE187 /* ToDoItem.swift */,
+			);
+			name = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,8 +288,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9B72F2C1E62CE6000CDE187 /* DateView.swift in Sources */,
 				C9B72EFA1E62CBB800CDE187 /* DetailViewController.swift in Sources */,
+				C9B72F2E1E62CE6000CDE187 /* PickerDialog.swift in Sources */,
+				C9B72F2D1E62CE6000CDE187 /* LocalNotificationUtil.swift in Sources */,
+				C9B72F2B1E62CE6000CDE187 /* DateButton.swift in Sources */,
 				C9B72EF81E62CBB800CDE187 /* MasterViewController.swift in Sources */,
+				C9B72F2F1E62CE6000CDE187 /* ToDoItem.swift in Sources */,
 				C9B72EF61E62CBB800CDE187 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
