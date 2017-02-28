@@ -44,7 +44,7 @@ class LocalNotificationUtil{
     }
     
     
-class func scheduleNotificationWithUID( uid: String, userInfo: Dictionary<String, Any>, messageBody: String, title:String, category: String, fireDate: Date, isRepeating:Bool){
+class func scheduleNotification( uid: String, userInfo: Dictionary<String, Any>, messageBody: String, title:String, category: String, fireDate: Date, isRepeating:Bool){
     
     
     // create content
@@ -106,6 +106,26 @@ class func scheduleNotificationWithUID( uid: String, userInfo: Dictionary<String
             
         }
     }
+    
+    class func deleteNotification( uid: String){
+        
+        if #available(iOS 10.0, *) {
+            let center =  UNUserNotificationCenter.current()
+            center.removeDeliveredNotifications(withIdentifiers: [uid])
+            center.removePendingNotificationRequests(withIdentifiers: [uid])
+            
+        }
+        else{
+            for  var noti in UIApplication.shared.scheduledLocalNotifications! {
+                if( uid == noti.userInfo?["uid"]as! String ){
+                    UIApplication.shared.cancelLocalNotification(noti)
+                }
+            }
+
+        }
+        
+    }
+
 
     
     //    //create trigger1

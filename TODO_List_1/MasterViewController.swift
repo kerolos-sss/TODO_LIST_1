@@ -38,12 +38,14 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(_ sender: Any) {
-        let item = ToDoItem(text: "",time: Date());
+        let item = ToDoItem(text: "",time: nil);
         objects.insert(item, at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
         self.tableView.insertRows(at: [indexPath], with: .automatic)
         willInsert = true
         self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.top)
+        self.performSegue(withIdentifier: "showDetail", sender: self.tableView.cellForRow(at: indexPath))
+
     }
     var willInsert = false
     // MARK: - Segues
@@ -83,7 +85,11 @@ class MasterViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         let object = objects[indexPath.row]
-        cell.textLabel!.text = object.text
+        if(object.text == nil || (object.text?.isEmpty)!){
+            cell.textLabel!.text = "Title Not Set"
+        }else{
+            cell.textLabel!.text = object.text
+        }
         return cell
     }
 

@@ -32,11 +32,11 @@ class DateButton: UIButton {
     @IBInspectable var pickerType : PickerType = .DateTime
 
     
-    var date = Date()
+    var date: Date? = nil
 
 
     
-    func setCurrentDate(_ date: Date){
+    func setCurrentDate(_ date: Date?){
         self.date = date
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd hh:mm a"
@@ -46,17 +46,20 @@ class DateButton: UIButton {
         else if(pickerType == .Time){
             dateFormatter.dateFormat = "hh:mm a"
         }
-        
-        let txt = dateFormatter.string(from: self.date)
-        self.setTitle(txt , for: .normal)
-        
+        if(self.date == nil){
+            self.setTitle("not set" , for: .normal)
+
+        }else{
+            let txt = dateFormatter.string(from: self.date!)
+            self.setTitle(txt , for: .normal)
+        }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
         self.addTarget(self, action: #selector( dateShowPicker(_:) ), for: UIControlEvents.touchUpInside)
         self.date = Date()
 
-        self.setCurrentDate(self.date)
+        self.setCurrentDate(self.date!)
         
     }
     
@@ -69,13 +72,16 @@ class DateButton: UIButton {
             mode = .time
         }
         
-        
+        var date_1 = self.date
         //picker.cu
-        DatePickerDialog().show( "Task Name", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", defaultDate: self.date, datePickerMode: mode ) {
+        if(date_1 == nil){
+            date_1 = Date()
+        }
+        DatePickerDialog().show( "Task Name", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", defaultDate: date_1!, datePickerMode: mode ) {
             (date, text) -> Void in
             if(date != nil && text != "" ){
                 self.setCurrentDate(date!)
-                self.didChangeDateHandler?(self.date)
+                self.didChangeDateHandler?(self.date!)
             }
         }
     }
